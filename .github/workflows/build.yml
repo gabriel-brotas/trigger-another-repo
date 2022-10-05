@@ -23,7 +23,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
         with:
-          repository: wexinc/global-backstage-helmcharts
+          repository: gabriel-brotas/backstage-charts
           token: ${{ secrets.ACCESS_TOKEN }} 
 
       - name: Update helm image version
