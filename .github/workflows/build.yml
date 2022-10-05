@@ -21,7 +21,7 @@ jobs:
             createPR: false
           
           - env: prod
-            branch: develop
+            branch: release/${{inputs.tags}}
             commitChange: true
             createPR: true
 
