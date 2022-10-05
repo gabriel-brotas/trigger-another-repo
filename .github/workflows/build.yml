@@ -12,10 +12,12 @@ jobs:
         env: [dev, prod]
         include:
           - env: dev
+            branch: main
             commitChange: true
             createPR: false
           
           - env: prod
+            branch: release/2.0.4
             commitChange: false
             createPR: true
 
@@ -31,9 +33,9 @@ jobs:
         with:
           valueFile: '${{ matrix.env }}/manifest.yaml'
           propertyPath: 'myapp.image.tag'
-          value: '2.0.3'
+          value: '2.0.4'
           repository: gabriel-brotas/backstage-charts
-          branch: main
+          branch: ${{ matrix.branch }}
           targetBranch: main
           commitChange: ${{ matrix.commitChange }}
           createPR: ${{ matrix.createPR }}
