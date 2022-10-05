@@ -1,8 +1,12 @@
 name: build
 
-on: 
-  workflow_call:
+on:
   workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Test scenario tags'
+        required: true
+        type: string
 
 jobs:
   ci:
@@ -17,7 +21,7 @@ jobs:
             createPR: false
           
           - env: prod
-            branch: release/2.0.4
+            branch: release/${{inputs.tags}}
             commitChange: false
             createPR: true
 
@@ -35,8 +39,8 @@ jobs:
           propertyPath: 'myapp.image.tag'
           value: '2.0.4'
           repository: gabriel-brotas/backstage-charts
-          branch: ${{ matrix.branch }}
-          targetBranch: main
+          branch: main
+          targetBranch: ${{ matrix.branch }}
           commitChange: ${{ matrix.commitChange }}
           createPR: ${{ matrix.createPR }}
           updateFile: true
