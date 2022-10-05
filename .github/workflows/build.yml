@@ -41,6 +41,7 @@ jobs:
           repository: gabriel-brotas/backstage-charts
           branch: ${{ matrix.branch }}
           targetBranch: main
+          masterBranchName: main
           commitChange: ${{ matrix.commitChange }}
           createPR: ${{ matrix.createPR }}
           updateFile: true
