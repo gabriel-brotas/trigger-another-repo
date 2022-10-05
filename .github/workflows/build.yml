@@ -37,7 +37,7 @@ jobs:
         with:
           valueFile: '${{ matrix.env }}/manifest.yaml'
           propertyPath: 'myapp.image.tag'
-          value: '2.0.4'
+          value: ${{inputs.tags}}
           repository: gabriel-brotas/backstage-charts
           branch: main
           targetBranch: ${{ matrix.branch }}
