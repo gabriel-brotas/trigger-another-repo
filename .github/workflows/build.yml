@@ -21,7 +21,7 @@ jobs:
             createPR: false
           
           - env: prod
-            branch: release/${{inputs.tags}}
+            branch: deployment/${{inputs.tags}}
             commitChange: true
             createPR: true
 
@@ -39,7 +39,7 @@ jobs:
           propertyPath: 'myapp.image.tag'
           value: ${{inputs.tags}}
           repository: gabriel-brotas/backstage-charts
-          branch: main
+          branch: ${{ matrix.branch }}
           targetBranch: main
           commitChange: ${{ matrix.commitChange }}
           createPR: ${{ matrix.createPR }}
