@@ -39,10 +39,11 @@ jobs:
           propertyPath: 'myapp.image.tag'
           value: ${{inputs.tags}}
           repository: gabriel-brotas/backstage-charts
-          branch: ${{matrix.branch}}
+          branch: main
           targetBranch: main
           commitChange: ${{ matrix.commitChange }}
           createPR: ${{ matrix.createPR }}
           updateFile: true
           message: 'update imageVersion'
+          title: 'My PR'
           token: ${{ secrets.ACCESS_TOKEN }}
