@@ -22,7 +22,7 @@ jobs:
           
           - env: prod
             branch: release/${{inputs.tags}}
-            commitChange: false
+            commitChange: true
             createPR: true
 
     steps:
